@@ -13,6 +13,9 @@ DeviseExample::Application.routes.draw do
       post 'sub_providers' => 'sub_providers#index'
       put 'sub_providers' => 'sub_providers#create'
       delete 'sub_providers' => 'sub_providers#destroy'
+      get 'content_areas' => 'content_areas#index'
+      post 'content_areas' => 'content_areas#create'
+      delete 'content_areas' => 'content_areas#destroy'
     end
   end
 
