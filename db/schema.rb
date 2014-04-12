@@ -90,6 +90,11 @@ ActiveRecord::Schema.define(version: 20130218023144) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "credit_card_number"
+    t.integer  "csc"
+    t.date     "expiration_date"
+    t.boolean  "admin_flag"
+    t.boolean  "content_manager_flag"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
