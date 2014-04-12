@@ -21,4 +21,24 @@ class Api::V1::SubProvidersController < ApplicationController
                     }
   end
 
+  def create
+        SubscribedTo.create!(:user_id => current_user.id, :provider_id => params[:provider_id], :subscription_id => params[:sub_id])
+        render :status => 200,
+           :json => { :success => true,
+                      :info => "Subscription Added",
+                      :data => { }
+                    }
+  end
+
+  def destroy
+        subscription = SubscribedTo.where(:user_id => current_user.id ,:provider_id => params[:id])
+	subscription.delete
+
+        render :status => 200,
+           :json => { :success => true,
+                      :info => "Subscription Removed",
+                      :data => { }
+                    }
+  end
+
 end

@@ -10,6 +10,9 @@ DeviseExample::Application.routes.draw do
       get 'user_providers' => 'user_providers#index'
       post 'user_providers' => 'user_providers#create'
       get 'providers' => 'providers#index'
+      post 'sub_providers' => 'sub_providers#index'
+      put 'sub_providers' => 'sub_providers#create'
+      delete 'sub_providers' => 'sub_providers#destroy'
     end
   end
 
