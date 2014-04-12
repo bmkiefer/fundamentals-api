@@ -1,5 +1,5 @@
 class AddSubscriptionId < ActiveRecord::Migration
   def change
-    add_column :subscribed_tos, :subscriptiona_id, :integer
+    add_column :subscribed_tos, :subscription_id, :integer
   end
 end
