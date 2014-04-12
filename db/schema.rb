@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218023135) do
+ActiveRecord::Schema.define(version: 20130218023144) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,12 +31,39 @@ ActiveRecord::Schema.define(version: 20140218023135) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
-  create_table "providers", force: true do |t|
+  create_table "content_areas", force: true do |t|
     t.string "name"
+  end
+
+  create_table "content_elements", force: true do |t|
+    t.string  "name"
+    t.string  "url"
+    t.integer "user_id"
+    t.integer "provider_id"
+  end
+
+  create_table "delivery_modes", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "formats", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "providers", force: true do |t|
+    t.string  "name"
+    t.integer "content_area_id"
+    t.integer "delivery_mode_id"
   end
 
   create_table "subscribed_tos", force: true do |t|
     t.integer "user_id"
+    t.integer "provider_id"
+    t.integer "subscriptiona_id"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.string  "name"
     t.integer "provider_id"
   end
 
@@ -63,6 +90,11 @@ ActiveRecord::Schema.define(version: 20140218023135) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "credit_card_number"
+    t.integer  "csc"
+    t.date     "expiration_date"
+    t.boolean  "admin_flag"
+    t.boolean  "content_manager_flag"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
