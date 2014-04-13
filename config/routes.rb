@@ -16,6 +16,11 @@ DeviseExample::Application.routes.draw do
       get 'content_areas' => 'content_areas#index'
       post 'content_areas' => 'content_areas#create'
       delete 'content_areas' => 'content_areas#destroy'
+      post 'hide_content_areas' => 'hide_content_areas#create'
+      get 'delivery_modes' => 'delivery_modes#index'
+      post 'delivery_modes' => 'delivery_modes#create'
+      delete 'delivery_modes' => 'delivery_modes#destroy'
+      post 'hide_delivery_modes' => 'hide_delivery_modes#create'
     end
   end
 
