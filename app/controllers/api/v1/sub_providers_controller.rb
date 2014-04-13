@@ -39,7 +39,7 @@ class Api::V1::SubProvidersController < ApplicationController
 
   def destroy
         subscription = SubscribedTo.where(:user_id => current_user.id ,:provider_id => params[:id])
-	subscription.delete
+	subscription.delete_all
 
         render :status => 200,
            :json => { :success => true,
