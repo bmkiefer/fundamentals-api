@@ -16,6 +16,8 @@ class Api::V1::SubProvidersController < ApplicationController
 
 	delivery_mode = DeliveryMode.find(provider.delivery_mode_id)
 
+        subscription = SubscribedTo.where(:user_id => current_user.id ,:provider_id => params[:id]).pluck(:subscription_id).first
+
 	render :status => 200,
            :json => { :success => true,
                       :info => "List of Subscriptions",
@@ -23,7 +25,8 @@ class Api::V1::SubProvidersController < ApplicationController
 
                                    "subscriptions" => subscriptions ,
                                    "content_area" => content_area.name,
-			           "delivery_mode" => delivery_mode.name
+			           "delivery_mode" => delivery_mode.name,
+				   "sub_id" => subscription
                                }
                     }
   end
