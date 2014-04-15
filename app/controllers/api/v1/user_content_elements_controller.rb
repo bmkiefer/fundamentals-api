@@ -25,14 +25,19 @@ class Api::V1::UserContentElementsController < ApplicationController
 
   def show
         my_content_element = ContentElement.find(params[:id])
+	provider = Provider.find(my_content_element.provider_id)
 
         render :status => 200,
            :json => { :success => true,
                       :info => "My Subscriptions",
                       :data => {
 
-                                   "content_elements" => my_content_element
+                                   "content_elements" => {
 
+					"name" => my_content_element.name,
+					"url" => my_content_element.url,
+					"provider_name" => provider.name
+				   }
                                }
                     }
   end
