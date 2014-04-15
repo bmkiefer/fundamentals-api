@@ -1,4 +1,4 @@
-class Api::V1::UserProvidersController < ApplicationController
+class Api::V1::ProviderContentElementsController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -8,16 +8,34 @@ class Api::V1::UserProvidersController < ApplicationController
   respond_to :json
 
   def index
-        subscriptions = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
-        my_providers = Provider.where(:id => subscriptions) 
+        content_elements = ContentElement.where(:provider_id => params[:id])
 
 	render :status => 200,
+           :json => { :success => true,
+                      :info => "Content Elements for Provider",
+                      :data => {
+
+                                   "content_elements" => content_elements
+                                   
+                               }
+                    }
+  end
+
+  def show
+	content_element = ContentElement.find(params[:id])
+
+        render :status => 200,
            :json => { :success => true,
                       :info => "My Subscriptions",
                       :data => {
 
-                                   "providers" => my_providers
-                                   
+                                   "content_element" => {
+
+                                        "name" => content_element.name,
+                                        "url" => content_element.url,
+                                        "hidden_flag" => content_element.hidden_flag
+                                   }
+
                                }
                     }
   end

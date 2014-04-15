@@ -23,6 +23,10 @@ DeviseExample::Application.routes.draw do
       post 'hide_delivery_modes' => 'hide_delivery_modes#create'
       get 'user_content_elements' => 'user_content_elements#index'
       put 'user_content_elements' => 'user_content_elements#show'
+      post 'provider_content_elements' => 'provider_content_elements#index'
+      put 'provider_content_elements' => 'provider_content_elements#show'
+      post 'manage_content_elements' => 'manage_content_elements#index'
+      put 'manage_content_elements' => 'manage_content_elements#show'
     end
   end
 
