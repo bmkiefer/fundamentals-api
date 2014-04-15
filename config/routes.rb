@@ -21,6 +21,8 @@ DeviseExample::Application.routes.draw do
       post 'delivery_modes' => 'delivery_modes#create'
       delete 'delivery_modes' => 'delivery_modes#destroy'
       post 'hide_delivery_modes' => 'hide_delivery_modes#create'
+      get 'user_content_elements' => 'user_content_elements#index'
+      put 'user_content_elements' => 'user_content_elements#show'
     end
   end
 
