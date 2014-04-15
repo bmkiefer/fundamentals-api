@@ -1,9 +1,10 @@
 class AddHiddenFlags < ActiveRecord::Migration
   def change
-    add_column :users, :credit_card_number, :string
-    add_column :users, :csc, :integer
-    add_column :users, :expiration_date, :date
-    add_column :users, :admin_flag, :boolean
-    add_column :users, :content_manager_flag, :boolean
+    add_column :providers, :hidden_flag, :boolean
+    add_column :content_areas, :hidden_flag, :boolean
+    add_column :delivery_modes, :hidden_flag, :boolean
+    add_column :formats, :hidden_flag, :boolean
+    add_column :content_elements, :hidden_flag, :boolean
+    remove_column :content_elements, :user_id
   end
 end
