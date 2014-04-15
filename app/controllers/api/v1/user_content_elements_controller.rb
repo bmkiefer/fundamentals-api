@@ -31,7 +31,7 @@ class Api::V1::UserContentElementsController < ApplicationController
                       :info => "My Subscriptions",
                       :data => {
 
-                                   "content_elements" => my_content_elements
+                                   "content_elements" => my_content_element
 
                                }
                     }
