@@ -26,7 +26,6 @@ DeviseExample::Application.routes.draw do
       post 'provider_content_elements' => 'provider_content_elements#index'
       put 'provider_content_elements' => 'provider_content_elements#show'
       post 'manage_content_elements' => 'manage_content_elements#index'
-      put 'manage_content_elements' => 'manage_content_elements#show'
     end
   end
 
