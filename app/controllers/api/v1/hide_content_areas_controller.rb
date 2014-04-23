@@ -11,7 +11,7 @@ class Api::V1::HideContentAreasController < ApplicationController
 	change = ContentArea.find(params[:id])
 
 	if change.hidden_flag == true
-	  change.update_column(:hidden_flag, false)
+	  change.update_column(:hidden_flag, nil)
 	else
 	  change.update_column(:hidden_flag, true)
 	end
