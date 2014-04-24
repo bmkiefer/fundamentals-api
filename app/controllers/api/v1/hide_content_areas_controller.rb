@@ -7,7 +7,7 @@ class Api::V1::HideContentAreasController < ApplicationController
 
   respond_to :json
 
-  def index
+  def create
 	change = ContentArea.find(params[:id])
 
 	if change.hidden_flag == true

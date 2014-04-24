@@ -7,7 +7,7 @@ class Api::V1::HideDeliveryModesController < ApplicationController
 
   respond_to :json
 
-  def index
+  def create
         change = DeliveryMode.find(params[:id])
 
         if change.hidden_flag == true
