@@ -22,14 +22,14 @@ class Api::V1::FormatsController < ApplicationController
 
   def show
 
-   my_format = Format.find(params[:id])
+#   my_format = Format.find(params[:id])
 
 
-  if my_format.hidden_flag == nil
-	my_format.update_column(:hidden_flag, true)
-  else	
-	my_format.update_column(:hidden_flag, nil)
-  end
+ # if my_format.hidden_flag == nil
+#	my_format.update_column(:hidden_flag, true)
+#  else	
+#	my_format.update_column(:hidden_flag, nil)
+#  end
 
   render :status => 200,
            :json => { :success => true,
