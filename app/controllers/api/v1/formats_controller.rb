@@ -9,7 +9,7 @@ class Api::V1::FormatsController < ApplicationController
 
   def index
 
-         all_formats =	Format.all
+         all_formats =	Format.all.order('name asc')
 
 	  render :status => 200,
            :json => { :success => true,
@@ -19,37 +19,4 @@ class Api::V1::FormatsController < ApplicationController
 				 }
                     }
   end
-
-def create
-
-         all_formats =  Format.all.order('name desc')
-
-          render :status => 200,
-           :json => { :success => true,
-                      :info => "All Formats",
-                      :data => {
-                                        :formats => all_formats
-                                 }
-                    }
-  end
-
- # def create
-
-#   my_format = Format.find(params[:id])
-
-
- # if my_format.hidden_flag == nil
-#	my_format.update_column(:hidden_flag, true)
-#  else	
-#	my_format.update_column(:hidden_flag, nil)
-#  end
-
- # render :status => 200,
- #          :json => { :success => true,
- #                     :info => "Format Visibility Toggled",
- #                     :data => { }
- #                   } 
-
- # end
-
 end

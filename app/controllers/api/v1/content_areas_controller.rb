@@ -8,7 +8,7 @@ class Api::V1::ContentAreasController < ApplicationController
   respond_to :json
 
   def index
-	content_areas = ContentArea.all
+	content_areas = ContentArea.all.order('name asc')
 	
 	render :status => 200,
            :json => { :success => true,

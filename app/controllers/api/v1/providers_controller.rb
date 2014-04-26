@@ -11,7 +11,7 @@ class Api::V1::ProvidersController < ApplicationController
         providers = Provider.all 
 
 	subscriptions = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
-        my_providers = Provider.where(:id => subscriptions)
+        my_providers = Provider.where(:id => subscriptions).order('name asc')
 
 	render :status => 200,
            :json => { :success => true,

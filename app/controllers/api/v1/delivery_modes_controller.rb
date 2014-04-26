@@ -8,7 +8,7 @@ class Api::V1::DeliveryModesController < ApplicationController
   respond_to :json
 
   def index
-	delivery_modes = DeliveryMode.all
+	delivery_modes = DeliveryMode.all.order('name asc')
 	
 	render :status => 200,
            :json => { :success => true,
