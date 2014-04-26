@@ -29,6 +29,7 @@ DeviseExample::Application.routes.draw do
       put 'manage_content_elements' => 'manage_content_elements#create'
       get 'formats' => 'formats#index'
       post 'formats' => 'formats#create'
+      put 'formats' => 'formats#create'
     end
   end
 
