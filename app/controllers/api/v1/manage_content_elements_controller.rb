@@ -42,4 +42,16 @@ class Api::V1::ManageContentElementsController < ApplicationController
 
   end
 
+  def delete
+	
+  ContentElement.find(params[:id]).delete
+
+  render :status => 200,
+           :json => { :success => true,
+                      :info => "Content Element Deleted",
+                      :data => { }
+                    }
+
+  end
+
 end

@@ -27,6 +27,8 @@ DeviseExample::Application.routes.draw do
       put 'provider_content_elements' => 'provider_content_elements#show'
       post 'manage_content_elements' => 'manage_content_elements#index'
       put 'manage_content_elements' => 'manage_content_elements#create'
+      delete 'manage_content_elements' => 'manage_content_elements#delete'
+      post 'hide_content_elements' => 'hide_content_elements#create'
       get 'formats' => 'formats#index'
       post 'manage_formats' => 'manage_formats#create'
     end
