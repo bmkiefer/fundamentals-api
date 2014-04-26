@@ -20,7 +20,20 @@ class Api::V1::FormatsController < ApplicationController
                     }
   end
 
-  def create
+def create
+
+         all_formats =  Format.all
+
+          render :status => 200,
+           :json => { :success => true,
+                      :info => "All Formats",
+                      :data => {
+                                        :formats => all_formats
+                                 }
+                    }
+  end
+
+ # def create
 
 #   my_format = Format.find(params[:id])
 
@@ -31,12 +44,12 @@ class Api::V1::FormatsController < ApplicationController
 #	my_format.update_column(:hidden_flag, nil)
 #  end
 
-  render :status => 200,
-           :json => { :success => true,
-                      :info => "Format Visibility Toggled",
-                      :data => { }
-                    } 
+ # render :status => 200,
+ #          :json => { :success => true,
+ #                     :info => "Format Visibility Toggled",
+ #                     :data => { }
+ #                   } 
 
-  end
+ # end
 
 end
