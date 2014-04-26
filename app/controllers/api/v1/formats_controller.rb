@@ -20,7 +20,7 @@ class Api::V1::FormatsController < ApplicationController
                     }
   end
 
-  def show
+  def create
 
 #   my_format = Format.find(params[:id])
 
