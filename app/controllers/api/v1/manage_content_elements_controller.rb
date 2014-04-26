@@ -26,7 +26,7 @@ class Api::V1::ManageContentElementsController < ApplicationController
                     }
   end
 
-  create
+  def create
 
   if params[:hidden_flag] == 1
     ContentElement.create(:name => params[:name], :url => params[:link], :hidden_flag => true, :provider_id => params[:provider_id] )
