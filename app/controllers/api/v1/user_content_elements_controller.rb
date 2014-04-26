@@ -10,7 +10,7 @@ class Api::V1::UserContentElementsController < ApplicationController
   def index
         my_providers = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
       #  my_content_elements = ContentElement.where(:provider_id => my_providers).order("released_date asc").
-        my_content_elements = ContentElement.where(:provider_id => my_providers)
+        my_content_elements = ContentElement.where(:provider_id => my_providers).where(:hidden_flag => nil)
 
 	render :status => 200,
            :json => { :success => true,
