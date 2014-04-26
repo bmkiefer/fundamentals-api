@@ -22,7 +22,7 @@ class Api::V1::FormatsController < ApplicationController
 
 def create
 
-         all_formats =  Format.all
+         all_formats =  Format.all.order('name desc')
 
           render :status => 200,
            :json => { :success => true,
