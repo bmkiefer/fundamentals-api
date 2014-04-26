@@ -9,7 +9,7 @@ class Api::V1::FormatsController < ApplicationController
 
   def index
 
-	Format.all
+         all_formats =	Format.all
 
 	  render :status => 200,
            :json => { :success => true,
