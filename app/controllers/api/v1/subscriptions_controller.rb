@@ -8,7 +8,7 @@ class Api::V1::SubscriptionsController < ApplicationController
   respond_to :json
 
   def index
-        subscriptions = Subscription.where(:provider_id => params[:id])
+        subscriptions = Subscription.where(:provider_id => params[:provider_id])
 
 	render :status => 200,
            :json => { :success => true,
@@ -29,7 +29,7 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def destroy
-	Subscription.find(params[:id]).delete
+	Subscription.find(params[:sub_id]).delete
 
         render :status => 200,
            :json => { :success => true,

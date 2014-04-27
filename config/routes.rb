@@ -31,6 +31,10 @@ DeviseExample::Application.routes.draw do
       post 'hide_content_elements' => 'hide_content_elements#create'
       get 'formats' => 'formats#index'
       post 'manage_formats' => 'manage_formats#create'
+      post 'hide_subscriptions' => 'hide_subscriptions#create'
+      post 'subscriptions' => 'subscriptions#index'
+      put 'subscriptions' => 'subscriptions#create'
+      delete 'subscriptions' => 'subscriptions#delete'
     end
   end
 
