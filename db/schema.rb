@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130218023144) do
+ActiveRecord::Schema.define(version: 20130218023146) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,28 +32,34 @@ ActiveRecord::Schema.define(version: 20130218023144) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "content_areas", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.boolean "hidden_flag"
   end
 
   create_table "content_elements", force: true do |t|
     t.string  "name"
     t.string  "url"
-    t.integer "user_id"
     t.integer "provider_id"
+    t.boolean "hidden_flag"
+    t.integer "format_id"
+    t.date    "expiration_date"
   end
 
   create_table "delivery_modes", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.boolean "hidden_flag"
   end
 
   create_table "formats", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.boolean "hidden_flag"
   end
 
   create_table "providers", force: true do |t|
     t.string  "name"
     t.integer "content_area_id"
     t.integer "delivery_mode_id"
+    t.boolean "hidden_flag"
   end
 
   create_table "subscribed_tos", force: true do |t|
