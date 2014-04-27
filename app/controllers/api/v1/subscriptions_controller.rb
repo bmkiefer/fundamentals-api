@@ -8,7 +8,7 @@ class Api::V1::SubscriptionsController < ApplicationController
   respond_to :json
 
   def index
-        subscriptions = Subscription.where(:provider_id => params[:provider_id])
+        subscriptions = Subscription.where(:provider_id => params[:id])
 
 	render :status => 200,
            :json => { :success => true,
