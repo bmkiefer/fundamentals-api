@@ -28,7 +28,7 @@ class Api::V1::SubscriptionsController < ApplicationController
                     }
   end
 
-  def destroy
+  def delete
 	Subscription.find(params[:sub_id]).delete
 
         render :status => 200,
