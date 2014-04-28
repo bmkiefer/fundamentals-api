@@ -31,7 +31,7 @@ class Api::V1::ProviderContentElementsController < ApplicationController
                       :data => {
 
                                    "content_element" => {
-					"format_name" => format.name
+					"format_name" => format.name,
                                         "name" => content_element.name,
                                         "url" => content_element.url,
                                         "hidden_flag" => content_element.hidden_flag
