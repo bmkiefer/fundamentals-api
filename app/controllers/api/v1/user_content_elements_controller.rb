@@ -14,7 +14,7 @@ class Api::V1::UserContentElementsController < ApplicationController
 
 	render :status => 200,
            :json => { :success => true,
-                      :info => "My Subscriptions",
+                      :info => "My Content Elements",
                       :data => {
 
                                    "content_elements" => my_content_elements
@@ -26,17 +26,19 @@ class Api::V1::UserContentElementsController < ApplicationController
   def show
         my_content_element = ContentElement.find(params[:id])
 	provider = Provider.find(my_content_element.provider_id)
+	format = Format.find(my_content_element.format_id)
 
         render :status => 200,
            :json => { :success => true,
-                      :info => "My Subscriptions",
+                      :info => "Content Element Details",
                       :data => {
 
                                    "content_element" => {
 
 					"name" => my_content_element.name,
 					"url" => my_content_element.url,
-					"provider_name" => provider.name
+					"provider_name" => provider.name,
+					"format_name" => format.name
 				   }
                                }
                     }

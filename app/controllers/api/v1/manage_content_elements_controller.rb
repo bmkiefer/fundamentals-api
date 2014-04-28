@@ -29,9 +29,9 @@ class Api::V1::ManageContentElementsController < ApplicationController
   def create
 
   if params[:hidden_flag] == 1
-    ContentElement.create(:name => params[:name], :url => params[:link], :hidden_flag => true, :provider_id => params[:provider_id] )
+    ContentElement.create(:format_id => params[:format_id], :name => params[:name], :url => params[:link], :hidden_flag => true, :provider_id => params[:provider_id] )
   else
-    ContentElement.create(:name => params[:name], :url => params[:link], :hidden_flag => nil, :provider_id => params[:provider_id] )
+    ContentElement.create(:format_id => params[:format_id], :name => params[:name], :url => params[:link], :hidden_flag => nil, :provider_id => params[:provider_id] )
   end
 
   render :status => 200,
