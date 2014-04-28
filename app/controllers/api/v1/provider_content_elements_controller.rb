@@ -23,6 +23,7 @@ class Api::V1::ProviderContentElementsController < ApplicationController
 
   def show
         content_element = ContentElement.find(params[:id])
+	format = Format.find(content_element.format_id)
 
         render :status => 200,
            :json => { :success => true,
@@ -30,7 +31,7 @@ class Api::V1::ProviderContentElementsController < ApplicationController
                       :data => {
 
                                    "content_element" => {
-
+					"format_name" => format.name
                                         "name" => content_element.name,
                                         "url" => content_element.url,
                                         "hidden_flag" => content_element.hidden_flag
