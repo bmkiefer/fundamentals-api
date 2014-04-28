@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130218023146) do
+ActiveRecord::Schema.define(version: 20130218023147) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20130218023146) do
     t.integer "provider_id"
     t.boolean "hidden_flag"
     t.integer "format_id"
-    t.date    "expiration_date"
   end
 
   create_table "delivery_modes", force: true do |t|
@@ -66,11 +65,13 @@ ActiveRecord::Schema.define(version: 20130218023146) do
     t.integer "user_id"
     t.integer "provider_id"
     t.integer "subscription_id"
+    t.date    "expiration_date"
   end
 
   create_table "subscriptions", force: true do |t|
     t.string  "name"
     t.integer "provider_id"
+    t.boolean "hidden_flag"
   end
 
   create_table "users", force: true do |t|
