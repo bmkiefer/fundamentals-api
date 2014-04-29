@@ -79,4 +79,14 @@ DeviseExample::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { :host => 'subportinc.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandbox043943e4bbf64c4fa63c201e12c817bf.mailgun.org",
+  :user_name => "postmaster@sandbox043943e4bbf64c4fa63c201e12c817bf.mailgun.org",
+  :password => "chiefs88`"
+}
 end
