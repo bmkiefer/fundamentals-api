@@ -87,6 +87,6 @@ DeviseExample::Application.configure do
   :port => 587,
   :domain => "sandbox043943e4bbf64c4fa63c201e12c817bf.mailgun.org",
   :user_name => "postmaster@sandbox043943e4bbf64c4fa63c201e12c817bf.mailgun.org",
-  :password => "chiefs88`"
+  :password => "3wok2crb0g75"
 }
 end
