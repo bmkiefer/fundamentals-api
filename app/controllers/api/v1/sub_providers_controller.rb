@@ -32,7 +32,14 @@ class Api::V1::SubProvidersController < ApplicationController
   end
 
   def create
-        SubscribedTo.create!(:user_id => current_user.id, :provider_id => params[:provider_id], :subscription_id => params[:sub_id])
+	sub = Subscription.find(params[:sub_id])
+
+	date = Date.today
+        date.to_time.advance(:days => sub.days).to_date
+	date.to_time.advance(:months => sub.months).to_date
+	date.to_time.advance(:years => sub.years).to_date
+	
+        SubscribedTo.create!(:user_id => current_user.id, :provider_id => params[:provider_id], :subscription_id => params[:sub_id], :expiration_date => date)
         render :status => 200,
            :json => { :success => true,
                       :info => "Subscription Added",

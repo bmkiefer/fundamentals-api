@@ -11,14 +11,17 @@ class Api::V1::UserContentElementsController < ApplicationController
         my_providers = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
       #  my_content_elements = ContentElement.where(:provider_id => my_providers).order("released_date asc").
         my_content_elements = ContentElement.where(:provider_id => my_providers).where(:hidden_flag => nil)
+	providers = Provider.all
+	my_subscriptions = SubscribedTo.where(:user_id => current_user.id)
 
 	render :status => 200,
            :json => { :success => true,
                       :info => "My Content Elements",
                       :data => {
 
-                                   "content_elements" => my_content_elements
-                                   
+                                   "content_elements" => my_content_elements,
+                                   "subscriptions" => my_subscriptions,
+				   "providers" => providers
                                }
                     }
   end
