@@ -36,6 +36,7 @@ DeviseExample::Application.routes.draw do
       put 'subscriptions' => 'subscriptions#create'
       delete 'subscriptions' => 'subscriptions#delete'
       post 'reset_password' => 'reset_password#create'
+      put 'update_account' => 'update_account#update'
     end
   end
 

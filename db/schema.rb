@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130218023147) do
+ActiveRecord::Schema.define(version: 20130218023148) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 20130218023147) do
     t.string  "name"
     t.integer "provider_id"
     t.boolean "hidden_flag"
+    t.integer "days"
+    t.integer "months"
+    t.integer "years"
   end
 
   create_table "users", force: true do |t|
@@ -99,9 +102,9 @@ ActiveRecord::Schema.define(version: 20130218023147) do
     t.datetime "updated_at"
     t.string   "credit_card_number"
     t.integer  "csc"
-    t.date     "expiration_date"
     t.boolean  "admin_flag"
     t.boolean  "content_manager_flag"
+    t.string   "expiration_date"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
