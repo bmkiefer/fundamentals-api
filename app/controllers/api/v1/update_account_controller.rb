@@ -7,7 +7,7 @@ class Api::V1::UpdateAccountController < ApplicationController
 
   respond_to :json
 
-  def create
+  def update
 	user = User.find(current_user.id)
 
 	user.email = params[:email]
