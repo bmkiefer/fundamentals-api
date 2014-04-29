@@ -12,7 +12,7 @@ class Api::V1::UpdateAccountController < ApplicationController
 
 	user.email = params[:email]
 	user.credit_card_number = params[:credit_card_number]
-	user.expiraton_date = params[:expiration_date]
+	user.expiration_date = params[:expiration_date]
 	user.name = params[:name]
 	user.csc = params[:csc]
 
