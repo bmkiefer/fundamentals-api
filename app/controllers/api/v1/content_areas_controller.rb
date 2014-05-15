@@ -30,6 +30,8 @@ class Api::V1::ContentAreasController < ApplicationController
 
   def destroy
         content_area = ContentArea.find(params[:id])
+
+	if Provider.where( :content_area_id => content_area.id).length == 0
 	content_area.delete
 
         render :status => 200,
@@ -37,6 +39,15 @@ class Api::V1::ContentAreasController < ApplicationController
                       :info => "Content Area Removed",
                       :data => { }
                     }
+	else
+
+	render :status => 200,
+           :json => { :success => true,
+                      :info => "Cannot Delete Content Area that has providers with it",
+                      :data => { }
+                    }
+
+	end
   end
 
 end

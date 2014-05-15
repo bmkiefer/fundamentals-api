@@ -30,13 +30,24 @@ class Api::V1::DeliveryModesController < ApplicationController
 
   def destroy
         delivery_mode = DeliveryMode.find(params[:id])
-	delivery_mode.delete
+
+	if Provider.where( :delivery_mode_id => delivery_mode.id).length == 0
+        delivery_mode.delete
 
         render :status => 200,
            :json => { :success => true,
                       :info => "Delivery Mode Removed",
                       :data => { }
                     }
+        else
+   
+        render :status => 200,
+           :json => { :success => true,
+                      :info => "Cannot Delete Delivery Mode that has providers with it",
+                      :data => { }
+                    }
+
+        end
   end
 
 end
